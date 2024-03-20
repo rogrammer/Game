@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(150, 230, 246);
+  background: linear-gradient(35deg,#faf484, #e61f0d);
   }
   
   .main-header h1 {
@@ -7,7 +7,7 @@ body {
   }
   
   .main-nav {
-    background-color: #8ffbde;
+    background: linear-gradient(45deg,#24ef31, #0de6c1);
     padding-top: 5px;
     height: 25px;
   }
@@ -29,7 +29,7 @@ body {
   }
   
   .main-nav a {
-    color: #b1a828;
+    color: #4d1552;
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
@@ -39,7 +39,7 @@ body {
   }
   
   .main-nav a:hover {
-    background-color: #97f8a2;
+    background-color: #3c7ddf;
   }
   
   #header-container {

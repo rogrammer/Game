@@ -1,13 +1,21 @@
 body {
-    background-color: rgb(174, 244, 142);
+  background: linear-gradient(90deg,#1e61f3, #d9f346);
+
   }
   
   .main-header h1 {
     margin: 0;
   }
   
+  img {
+    height: 400px;
+    width: 250px;
+    float: right;
+    margin: 10px 10px 10px 10px;
+  }
+
   .main-nav {
-    background-color: #8ffbde;
+    background: linear-gradient(45deg,#24ef31, #0de6c1);
     padding-top: 5px;
     height: 25px;
   }
@@ -39,7 +47,7 @@ body {
   }
   
   .main-nav a:hover {
-    background-color: #97f8a2;
+    background-color: #3c7ddf;
   }
   
   #header-container {
