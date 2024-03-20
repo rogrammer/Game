@@ -1,5 +1,19 @@
 body {
-  background-color: rgb(246, 242, 150);
+  background: linear-gradient(45deg,#4b90ea, #ef1a5e);
+  
+}
+
+#content {
+  height: 400px;
+  width: 500px;
+  float: left;
+  margin-top: 20px;
+}
+
+#content img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
 }
 
 .main-header h1 {
@@ -7,7 +21,7 @@ body {
 }
 
 .main-nav {
-  background-color: #8ffbde;
+  background: linear-gradient(45deg,#24ef31, #0de6c1);
   padding-top: 5px;
   height: 25px;
 }
@@ -29,9 +43,9 @@ body {
 }
 
 .main-nav a {
-  color: #b1a828;
+  color: #4f0c3d;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 900;
   font-size: 16px;
   padding: 10px 15px;
   border-radius: 5px;
@@ -39,7 +53,7 @@ body {
 }
 
 .main-nav a:hover {
-  background-color: #97f8a2;
+  background-color: #3c7ddf;
 }
 
 #header-container {
@@ -58,10 +72,6 @@ body {
   font-size: 23 px;
 }
 
-img {
-  width: 500px;
-}
-
 #header {
   background-color: aliceblue;
   color: black;
@@ -71,9 +81,9 @@ img {
 }
 .checkbox-wrapper-14 {
   margin-left: 100px;
-  width: 500px;
+  width: 400px;
   float: left;
-  position: relative;
+  margin-top: 100px;
 }
 
 @supports (-webkit-appearance: none) or (-moz-appearance: none) {
