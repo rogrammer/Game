@@ -1,11 +1,10 @@
 body {
-  background: linear-gradient(45deg,#4b90ea, #ef1a5e);
-  
+  background: linear-gradient(80deg,#4b90ea, #ef1a5e);
 }
 
 #content {
-  height: 400px;
-  width: 500px;
+  height: 40%;
+  width: 40%;
   float: left;
   margin-top: 20px;
 }

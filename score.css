@@ -39,7 +39,7 @@ body {
   background-color: #3c7ddf;
 }
 
-#header-container {
+div.header-container {
   display: flex;
   justify-content: center;
 }
@@ -48,8 +48,16 @@ body {
   background-color: aliceblue;
   color: black;
   text-align: center;
-  width: 40%;
+  width: 80%;
   border-radius: 15px;
+}
+
+#title {
+  background: linear-gradient(180deg, #c66b86, #6b0421);
+  color: black;
+  text-align: center;
+  width: 40%;
+  border-radius: 20px;
 }
 
 .score-table {

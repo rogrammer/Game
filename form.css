@@ -1,8 +1,22 @@
 body {
-  background: linear-gradient(35deg, #faf484, #e61f0d);
+  background: linear-gradient(90deg, #3654fa, #052453);
   font-family: Arial, sans-serif;
 }
 
+#title {
+  font-weight: bold;
+  font-size: 27px;
+  background-color: rgb(233, 233, 233);
+  border-radius: 10px;
+  padding: 5px 0px 5px 15px;
+}
+
+#header-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Style the navigation bar */
 .main-header h1 {
   margin: 0;
 }
@@ -43,19 +57,8 @@ body {
   background-color: #3c7ddf;
 }
 
-#header-container {
-  display: flex;
-  justify-content: center;
-}
 
-#header {
-  background-color: aliceblue;
-  color: black;
-  text-align: center;
-  width: 40%;
-  border-radius: 15px;
-}
-
+/* Style the form */
 .form-container {
   width: 50%;
   margin: 0 auto;
@@ -95,3 +98,46 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
   background-color: #45a049;
 }
+
+/* Style for contact us text */
+* {
+  box-sizing: border-box;
+}
+:root {
+  --background-color: black;
+  --text-color: hsl(0, 0%, 100%);
+}
+body {
+  margin: 0;
+}
+.wrapper {
+  display: grid;
+  place-content: center;
+  background-color: var(--background-color);
+  min-height: 100px;
+  width: 700px; 
+  margin-top: 10px;
+  border-radius: 50px;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(1rem, 1rem + 4vw, 3rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.wrapper > div {
+  grid-area: 1/1/-1/-1;
+}
+.top {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
+}
+.bottom {
+  clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
+  color: transparent;
+  background: -webkit-linear-gradient(177deg, black 53%, var(--text-color) 65%);
+  background: linear-gradient(177deg, black 53%, var(--text-color) 65%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  transform: translateX(-0.02em);
+}
+
