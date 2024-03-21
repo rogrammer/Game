@@ -3,19 +3,38 @@
 
 <head>
   <link rel="stylesheet" href="form.css">
-  <title>form</title>
+  <title>Contact Form</title>
 </head>
-<header id="header-container">
-  <h1 id="header">SERVICE PAGE</h1>
-</header>
-<main>
-  <nav class="main-nav">
-    <ul>
+
+<body>
+  <header id="header-container">
+    <h1 id="header">CONTACT US</h1>
+  </header>
+  <main>
+    <nav class="main-nav">
+      <ul>
         <li><a href="index.html">HOME</a></li>
-        <li><a href="form.html">SERVICE PAGE</a></li>
         <li><a href="learn.html">LEARN GAME</a></li>
-    </ul>
-</nav>
-</main>
+        <li><a href="score.html">RANK</a></li>
+        <li><a href="form.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+
+    <div class="form-container">
+      <form action="#" method="POST">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br>
+
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </main>
+</body>
 
 </html>
