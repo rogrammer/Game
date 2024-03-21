@@ -3,6 +3,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
+/* Style for navigation bar starts */
 .main-nav {
   background: linear-gradient(45deg, #24ef31, #0de6c1);
   padding-top: 5px;
@@ -38,13 +39,25 @@ body {
 .main-nav a:hover {
   background-color: #3c7ddf;
 }
+/* Style for navigation bar ends */
 
+/* Style for header starts */
 div.header-container {
   display: flex;
   justify-content: center;
 }
 
 #header {
+  background: linear-gradient(180deg, #c66b86, #6b0421);
+  color: black;
+  text-align: center;
+  width: 40%;
+  border-radius: 20px;
+}
+/* Style for headers end */
+
+/* Style for table title */
+#title {
   background-color: aliceblue;
   color: black;
   text-align: center;
@@ -52,14 +65,7 @@ div.header-container {
   border-radius: 15px;
 }
 
-#title {
-  background: linear-gradient(180deg, #c66b86, #6b0421);
-  color: black;
-  text-align: center;
-  width: 40%;
-  border-radius: 20px;
-}
-
+/* Table style start */
 .score-table {
   width: 80%;
   margin: 20px auto;
@@ -70,7 +76,8 @@ div.header-container {
   border-collapse: collapse;
 }
 
-.score-table th, .score-table td {
+.score-table th,
+.score-table td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ccc;
@@ -87,3 +94,4 @@ div.header-container {
 .score-table tr:hover {
   background-color: #e5e5e5;
 }
+/* Table style end */

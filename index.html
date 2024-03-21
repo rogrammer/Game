@@ -5,18 +5,23 @@
   <link rel="stylesheet" href="index.css">
   <title>game</title>
 </head>
+
 <body>
+  <!--  Header -->
   <div id="header-container">
     <h1 id="header">IMPROVE YOUR KNOWLEDGE <br>ON HTML CSS JS</h1>
   </div>
+  <!-- Navigation Bar -->
   <nav class="main-nav">
     <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="learn.html">LEARN GAME</a></li>
-        <li><a href="score.html">RANK</a></li>
-        <li><a href="form.html">CONTACT US</a></li>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="learn.html">LEARN GAME</a></li>
+      <li><a href="score.html">RANK</a></li>
+      <li><a href="form.html">CONTACT US</a></li>
     </ul>
-</nav>
+  </nav>
+
+  <!-- Options music sound -->
   <div class="checkbox-wrapper-14">
     <h1 class="text">OPTIONS</h1>
     <input id="sound" type="checkbox" class="switch" />
@@ -24,9 +29,13 @@
     <input id="music" type="checkbox" class="switch" />
     <label for="music">MUSIC</label><br />
   </div>
+
+  <!-- html css picture -->
   <div id="content">
     <img src="home.webp" alt="picture">
   </div>
+
+  <!-- select hardness menu -->
   <div class="checkbox-wrapper-14">
     <h1 class="text">SELECT HARDNESS</h1>
     <input id="hard" type="checkbox" class="switch" />
@@ -37,6 +46,8 @@
     <label for="easy">EASY</label><br />
   </div>
   <br /><br /><br />
+
+  <!-- play button -->
   <div id="play">
     <router-link to="/hardpage">
       <button @click="openNewWindow" name="playButton" class="button-78" role="button">
@@ -44,6 +55,7 @@
       </button>
     </router-link>
   </div>
+
 </body>
 
 </html>

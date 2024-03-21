@@ -1,7 +1,23 @@
 body {
-  background: linear-gradient(80deg,#4b90ea, #ef1a5e);
+  background: linear-gradient(80deg, #4b90ea, #ef1a5e);
 }
 
+/* Style for header of page start */
+#header-container {
+  display: flex;
+  justify-content: center;
+}
+
+#header {
+  background-color: aliceblue;
+  color: black;
+  text-align: center;
+  width: 40%;
+  border-radius: 15px;
+}
+/* Style for header end */
+
+/* Style for picture start */
 #content {
   height: 40%;
   width: 40%;
@@ -14,13 +30,11 @@ body {
   height: 100%;
   border-radius: 20px;
 }
+/*  Style for picture end */
 
-.main-header h1 {
-  margin: 0;
-}
-
+/* Style for navigation bar start */
 .main-nav {
-  background: linear-gradient(45deg,#24ef31, #0de6c1);
+  background: linear-gradient(45deg, #24ef31, #0de6c1);
   padding-top: 5px;
   height: 25px;
 }
@@ -54,29 +68,11 @@ body {
 .main-nav a:hover {
   background-color: #3c7ddf;
 }
+/* Style for navigation bar end */
 
-#header-container {
-  display: flex;
-  justify-content: center;
-}
-
-#play {
-  display: flex;
-  justify-content: center;
-  padding-top: 50px;
-  clear: both;
-}
-
+/* Style for checkboxes start */
 .text {
   font-size: 23 px;
-}
-
-#header {
-  background-color: aliceblue;
-  color: black;
-  text-align: center;
-  width: 40%;
-  border-radius: 15px;
 }
 .checkbox-wrapper-14 {
   margin-left: 100px;
@@ -205,6 +201,15 @@ body {
 .checkbox-wrapper-14 *:after {
   box-sizing: inherit;
 }
+/* Style for checkboxes end */
+
+/* Style for buttons start */
+#play {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  clear: both;
+}
 
 .button-78 {
   align-items: center;
@@ -324,3 +329,4 @@ body {
   cursor: default;
   opacity: 0.24;
 }
+/* Style for buttons end */

@@ -3,6 +3,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
+/* Style for requset and complain text */
 #title {
   font-weight: bold;
   font-size: 27px;
@@ -57,7 +58,6 @@ body {
   background-color: #3c7ddf;
 }
 
-
 /* Style the form */
 .form-container {
   width: 50%;
@@ -87,7 +87,7 @@ form textarea {
 }
 
 form input[type="submit"] {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -107,15 +107,13 @@ form input[type="submit"]:hover {
   --background-color: black;
   --text-color: hsl(0, 0%, 100%);
 }
-body {
-  margin: 0;
-}
+
 .wrapper {
   display: grid;
   place-content: center;
   background-color: var(--background-color);
-  min-height: 100px;
-  width: 700px; 
+  min-height: 80px;
+  width: 700px;
   margin-top: 10px;
   border-radius: 50px;
   font-family: "Oswald", sans-serif;
@@ -140,4 +138,3 @@ body {
   -webkit-background-clip: text;
   transform: translateX(-0.02em);
 }
-
