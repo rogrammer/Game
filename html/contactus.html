@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="../css/contactus.css" />
-    <link rel="stylesheet" href="../css/navbar.css" />
+  <head>    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="../css/contactus.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script
-      src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css"
-    />
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js" crossorigin="anonymous"></script>
+    <script src="../js/contactus.js"></script>
     <title>Contact Form</title>
   </head>
-
   <body>
     <!-- header of page -->
     <div id="header-container">
@@ -35,51 +31,24 @@
         </ul>
       </nav>
       <br /><br />
-
       <!-- Contact form -->
       <div class="form-container">
-        <form action="#" method="POST">
+        <form id="contactForm" action="#" method="POST">
           <h1 id="title">COMPLAINT & CONCERN & REQUEST & SUGGESTION FORM</h1>
           <br />
-          <input type="text" id="name" placeholder="NAME" required /><br />
-
-          <input
-            type="text"
-            id="surname"
-            placeholder="SURNAME"
-            required
-          /><br />
-
-          <input type="email" id="email" placeholder="EMAIL" required /><br />
-
-          <input
-            type="text"
-            id="country"
-            placeholder="COUNTRY"
-            required
-          /><br />
-
-          <input
-            type="text"
-            id="datepicker"
-            placeholder="BIRTHDATE"
-            required
-          /><br />
-
+          <input type="text" id="name" name="name" placeholder="NAME"  /><br />
+          <input type="text" id="surname" name="surname" placeholder="SURNAME"  /><br />
+          <input type="email" id="email" name="email" placeholder="EMAIL"  /><br />
+          <input type="text" id="country" name="country" placeholder="COUNTRY"  /><br />
+          <input type="text" id="datepicker" name="birthdate" placeholder="BIRTHDATE"  /><br />
           <label for="message">Message:</label><br />
-          <textarea
-            id="message"
-            name="message"
-            rows="4"
-            placeholder="Write your message ..."
-            required
-          ></textarea
-          ><br />
-
+          <textarea id="message" name="message" rows="4" placeholder="Write your message ..." ></textarea><br />
           <input id="submit" type="submit" value="Submit" />
         </form>
+        <div id="successMessage" style="display: none;">
+          <p>Thank you for your submission!</p>
+        </div>
       </div>
     </main>
-    <script src="../js/contactus.js"></script>
   </body>
 </html>
