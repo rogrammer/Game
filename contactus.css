@@ -34,7 +34,16 @@ form label {
 }
 
 form input[type="text"],
-form input[type="email"],
+form input[type="date"],
+form input[type="email"] {
+  width: 40%;
+  padding: 8px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 form textarea {
   width: 100%;
   padding: 8px;
@@ -45,7 +54,7 @@ form textarea {
   box-sizing: border-box;
 }
 
-form input[type="submit"] {
+/* form input[type="submit"] {
   background-color: #4caf50;
   color: white;
   padding: 10px 20px;
@@ -56,7 +65,7 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
   background-color: #45a049;
-}
+} */
 
 /* Style for contact us text */
 * {

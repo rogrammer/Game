@@ -2,8 +2,11 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="form.css">
+  <link rel="stylesheet" href="contactus.css">
   <link rel="stylesheet" href="navbar.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
   <title>Contact Form</title>
 </head>
 
@@ -24,7 +27,7 @@
         <li><a href="index.html">HOME</a></li>
         <li><a href="learn.html">LEARN GAME</a></li>
         <li><a href="score.html">RANK</a></li>
-        <li><a href="form.html">CONTACT US</a></li>
+        <li><a href="contactus.html">CONTACT US</a></li>
       </ul>
     </nav>
     <br><br>
@@ -33,19 +36,22 @@
     <div class="form-container">
       <form action="#" method="POST">
         <h1 id="title">COMPLAINT & CONCERN & REQUEST & SUGGESTION FORM</h1><br>
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br>
+        <input type="text" id="name" placeholder="NAME" required><br>
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br>
+        <input type="text" id="surname" placeholder="USERNAME" required><br>
+
+        <input type="email" id="email" placeholder="EMAIL" required><br>
+
+        <input type="text" id="datepicker" placeholder="BIRTHDATE" required><br>
 
         <label for="message">Message:</label><br>
         <textarea id="message" name="message" rows="4" required></textarea><br>
 
-        <input type="submit" value="Submit">
+        <input id="submit" type="submit" value="Submit">
       </form>
     </div>
   </main>
-</body>
 
+  <script src="contactus.js"></script>
+</body>
 </html>
