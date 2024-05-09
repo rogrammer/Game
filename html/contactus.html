@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../css/contactus.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script
+      src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css"
+    />
+    <title>Contact Form</title>
+  </head>
+
+  <body>
+    <!-- header of page -->
+    <div id="header-container">
+      <div class="wrapper">
+        <div class="top">CONTACT US</div>
+        <div class="bottom" aria-hidden="true">CONTACT US</div>
+      </div>
+    </div>
+    <br /><br /><br /><br />
+    <main>
+      <!-- Navigation Bar -->
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="learn.html">LEARN GAME</a></li>
+          <li><a href="score.html">RANK</a></li>
+          <li><a href="contactus.html">CONTACT US</a></li>
+        </ul>
+      </nav>
+      <br /><br />
+
+      <!-- Contact form -->
+      <div class="form-container">
+        <form action="#" method="POST">
+          <h1 id="title">COMPLAINT & CONCERN & REQUEST & SUGGESTION FORM</h1>
+          <br />
+          <input type="text" id="name" placeholder="NAME" required /><br />
+
+          <input
+            type="text"
+            id="surname"
+            placeholder="SURNAME"
+            required
+          /><br />
+
+          <input type="email" id="email" placeholder="EMAIL" required /><br />
+
+          <input
+            type="text"
+            id="country"
+            placeholder="COUNTRY"
+            required
+          /><br />
+
+          <input
+            type="text"
+            id="datepicker"
+            placeholder="BIRTHDATE"
+            required
+          /><br />
+
+          <label for="message">Message:</label><br />
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Write your message ..."
+            required
+          ></textarea
+          ><br />
+
+          <input id="submit" type="submit" value="Submit" />
+        </form>
+      </div>
+    </main>
+    <script src="../js/contactus.js"></script>
+  </body>
+</html>

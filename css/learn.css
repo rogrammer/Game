@@ -18,6 +18,13 @@ body {
 /* Style for header end */
 
 /* Style for image */
+.cls-1 {
+  fill: none;
+  stroke: deeppink;
+  stroke-miterlimit: 10;
+  stroke-width: 7px;
+}
+
 img {
   height: 300px;
   width: auto;
@@ -181,7 +188,7 @@ img {
   object-position: right;
 }
 
-#dp-slider,  .dp-img img { height: 650px; }
+#dp-slider,  .dp-img img { height: 620px; }
 
 #dp-slider .dp_item:hover:not(:first-child) { cursor: pointer; }
 
