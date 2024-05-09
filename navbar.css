@@ -1,6 +1,6 @@
 /* Style for navigation bar starts */
 .main-nav {
-    background: linear-gradient(45deg, #24ef31, #0de6c1);
+    background: rgb(255, 255, 255);
     padding-top: 5px;
     height: 25px;
     position: fixed;
@@ -25,7 +25,7 @@
   }
   
   .main-nav a {
-    color: #7e2b04;
+    color: #000000;
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
@@ -35,7 +35,7 @@
   }
   
   .main-nav a:hover {
-    background-color: #3c7ddf;
+    background-color: #3373e9;
   }
   /* Style for navigation bar end */
   

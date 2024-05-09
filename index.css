@@ -1,6 +1,22 @@
 body {
-  background: linear-gradient(80deg, #4b90ea, #ef1a5e);
+  background: linear-gradient(45deg, #00bfff, #ff7f00, #ffd700); 
 }
+
+/* Style for logos */
+.language-logo {
+  max-width: 305px;
+  max-height: 305px;
+  cursor: pointer;
+  margin: 35px;
+}
+
+/* Styling for selected image */
+.language-logo.selected {
+  border: 2px solid #ffffff; /* Change border color */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow effect */
+}
+
 
 /* Style for header of page start */
 #header-container {
@@ -9,8 +25,8 @@ body {
 }
 
 #header {
-  background-color: aliceblue;
-  color: black;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   text-align: center;
   width: 40%;
   border-radius: 15px;
@@ -31,7 +47,6 @@ body {
   border-radius: 20px;
 }
 /*  Style for picture end */
-
 
 /* Style for checkboxes start */
 .text {

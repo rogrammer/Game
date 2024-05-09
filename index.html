@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="navbar.css">
-  <title>game</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="index.js"></script>
+  <title>Game</title>
 </head>
-
 <body>
-  <!--  Header -->
+  <!-- Header -->
   <div id="header-container">
     <h1 id="header">IMPROVE YOUR KNOWLEDGE <br>ON HTML CSS JS</h1>
   </div><br><br>
+
   <!-- Navigation Bar -->
   <nav class="main-nav">
     <ul>
@@ -31,32 +33,30 @@
     <label for="music">MUSIC</label><br />
   </div>
 
-  <!-- html css picture -->
-  <div id="content">
-    <img src="home.webp" alt="picture">
+  <!-- HTML, CSS, JS Logos -->
+  <div id="language-logos">
+    <img src="html.png" alt="HTML Logo" id="html-logo" class="language-logo">
+    <img src="css.png" alt="CSS Logo" id="css-logo" class="language-logo">
+    <img src="js.png" alt="JS Logo" id="js-logo" class="language-logo">
   </div>
 
-  <!-- select hardness menu -->
+  <!-- Select hardness menu -->
   <div class="checkbox-wrapper-14">
     <h1 class="text">SELECT HARDNESS</h1>
-    <input id="hard" type="checkbox" class="switch" />
-    <label for="hard">HARD</label><br />
-    <input id="medium" type="checkbox" class="switch" />
-    <label for="medium">MEDIUM</label><br />
     <input id="easy" type="checkbox" class="switch" />
     <label for="easy">EASY</label><br />
+    <input id="medium" type="checkbox" class="switch" />
+    <label for="medium">MEDIUM</label><br />
+    <input id="hard" type="checkbox" class="switch" />
+    <label for="hard">HARD</label><br />
   </div>
   <br /><br /><br />
 
-  <!-- play button -->
+  <!-- Play button -->
   <div id="play">
-    <router-link to="/hardpage">
-      <button @click="openNewWindow" name="playButton" class="button-78" role="button">
-        PLAY
-      </button>
-    </router-link>
+    <button id="playButton" class="button-78" role="button">
+      PLAY
+    </button>
   </div>
-
 </body>
-
 </html>
