@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(90deg, #1e61f3, #d9f346);
+  background: linear-gradient(90deg, #4095f7, #f7a122);
 }
 /* Style for header start */
 #header-container {
@@ -8,18 +8,20 @@ body {
 }
 
 #header {
-  background-color: aliceblue;
-  color: black;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   text-align: center;
   width: 40%;
   border-radius: 15px;
+  margin-top: 40px;
 }
 /* Style for header end */
 
 /* Style for image */
 img {
-  height: 400px;
-  width: 250px;
+  height: 300px;
+  width: auto;
   float: right;
-  margin: 10px 10px 10px 10px;
+  margin: 10px;
+  border: 3px solid #fff;
 }

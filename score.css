@@ -11,8 +11,8 @@ div.header-container {
 }
 
 #header {
-  background: linear-gradient(180deg, #c66b86, #6b0421);
-  color: black;
+  background: black;
+  color: white;
   text-align: center;
   width: 40%;
   border-radius: 20px;
