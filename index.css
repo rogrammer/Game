@@ -2,6 +2,14 @@ body {
   background: linear-gradient(80deg, #4b90ea, #ef1a5e);
 }
 
+/* Style for logos */
+.language-logo {
+  max-width: 305px;
+  max-height: 305px;
+  cursor: pointer;
+  margin: 35px;
+}
+
 /* Style for header of page start */
 #header-container {
   display: flex;
@@ -31,7 +39,6 @@ body {
   border-radius: 20px;
 }
 /*  Style for picture end */
-
 
 /* Style for checkboxes start */
 .text {
