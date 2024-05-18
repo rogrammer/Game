@@ -24,25 +24,6 @@ $(document).ready(function(){
 
         // Get the selected image
         var selectedImage = $('.language-logo.selected').attr('id');
-
-        // Perform actions based on the selected image
-        switch(selectedImage) {
-            case 'html-logo':
-                // Actions to perform when HTML logo is selected
-                alert('HTML Logo selected! Difficulty: ' + selectedDifficulty);
-                break;
-            case 'css-logo':
-                // Actions to perform when CSS logo is selected
-                alert('CSS Logo selected! Difficulty: ' + selectedDifficulty);
-                break;
-            case 'js-logo':
-                // Actions to perform when JS logo is selected
-                alert('JS Logo selected! Difficulty: ' + selectedDifficulty);
-                break;
-            default:
-                // This case should not be reached if a logo is selected
-                console.error('Unexpected case!');
-        }
     });
 
     // Select difficulty level checkboxes
