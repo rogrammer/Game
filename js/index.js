@@ -1,42 +1,65 @@
-$(document).ready(function(){
-    // When an image is clicked
-    $('.language-logo').click(function(){
-        // Remove selected class from all images
-        $('.language-logo').removeClass('selected');
-        // Add selected class to the clicked image
-        $(this).addClass('selected');
-    });
+// common.js
 
-    // When the play button is clicked
-    $('#playButton').click(function(){
-        // Check if a logo is selected
-        if ($('.language-logo.selected').length === 0) {
-            alert('Please select a logo!');
-            return; // Stop execution if no logo is selected
+$(document).ready(function() {
+    var musicEnabled = localStorage.getItem('musicEnabled') === 'true';
+
+        // Music volume slider
+        $('#music-volume-slider').slider({
+            range: "min",
+            min: 0,
+            max: 100,
+            value: 50,
+            slide: function(event, ui) {
+                adjustMusicVolume(ui.value);
+            }
+        });
+    
+        function adjustMusicVolume() {
+            var volume = $('#volume-slider').val();
+            var volumeFraction = volume / 100;
+
+            if (!isNaN(volumeFraction) && isFinite(volumeFraction)) {
+                musicAudio.volume = volumeFraction;
+            } else {
+                console.error("Geçersiz ses seviyesi: " + volume);
+            }
         }
-
-        // Check if a difficulty level is selected
-        var selectedDifficulty = $("input[type='checkbox'].switch:checked").attr("id");
-        if (!selectedDifficulty) {
-            alert('Please select a difficulty level!');
-            return; // Stop execution if no difficulty level is selected
-        }
-
-        // Get the selected image
-        var selectedImage = $('.language-logo.selected').attr('id');
-    });
-
-    // Select difficulty level checkboxes
-    var difficultyCheckboxes = $("input[type='checkbox'].switch");
-
-    // Add click event for each checkbox
-    difficultyCheckboxes.click(function() {
-        var selectedCheckbox = $(this);
+    
+        $('#volume-slider').on('input', adjustMusicVolume);
         
-        // Check if the selected checkbox is checked
-        if (selectedCheckbox.prop("checked")) {
-            // If a checkbox is checked, uncheck the others
-            difficultyCheckboxes.not(selectedCheckbox).prop("checked", false);
+    // Music checkbox
+    $('#music').click(function() {
+        musicEnabled = !musicEnabled;
+        localStorage.setItem('musicEnabled', musicEnabled);
+        if (musicEnabled) {
+            playMusic('../sounds/music.mp3'); // Change 'music.mp3' with your music file name
+        } else {
+            stopMusic(); // Stop music if unchecked
         }
     });
+
+    var musicAudio = new Audio(); // Initialize audio element for music
+
+    // Function to play sound
+    function playSound(soundFile) {
+        var audio = new Audio(soundFile);
+        audio.play();
+    }
+
+    // Function to play music
+    function playMusic(musicFile) {
+        musicAudio.src = musicFile;
+        musicAudio.loop = true; // Loop the music
+        musicAudio.play();
+    }
+
+    // Function to stop music
+    function stopMusic() {
+        musicAudio.pause();
+    }
+
+    // Stopping the music because we just wanted to play in the game background
+    if (musicEnabled && !musicAudio.paused) {
+        stopMusic();
+    }
 });

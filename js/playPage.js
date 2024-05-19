@@ -21,7 +21,6 @@ function next() { // go next question
     
         $("#label4").text(data.questions[questionNumber].answers[3].text);
         $("#radio4").attr("value", data.questions[questionNumber].answers[3].correct);
-    
     })
 }
 
@@ -30,37 +29,126 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+$(document).ready(function() {
+    $('input[name=answer]').click(function(event) {
+        $('input[name=answer]').prop('disabled', true); // don't any other answer
+
+        var labelFor = $(this).attr('id');
+        setTimeout(async function() {
+            if(event.target.value === "true") {
+                $('label[for=' + labelFor + ']').attr("class", "correct"); // do label color green
+                correct++;
+            } else {
+                $('label[for=' + labelFor + ']').attr("class", "incorrect"); // do label color red
+                incorrect++;
+            }
+            questionNumber++;
+            await sleep(1000);
+
+            // reset attributes of labels and radio buttons
+            $('input[name=answer]').prop('checked', false);
+            $('input[name=answer]').prop('disabled', false);
+            if(questionNumber < max) {
+                next();
+            } else {
+                endGame();
+            }
+            $('label[for=' + labelFor + ']').removeClass("correct incorrect");
+        }, 1000)
+    })
+})
+
+function endGame() {
+    
+    // End of game div
+    $(".container").empty();
+    var str = "</br></br><p>Correct: " + correct + "</br> Incorrect: " + incorrect + "</br></br>END OF GAME</br></br>";
+    str += "<input type='text' id='name' placeholder='Enter your name' required />";
+    str += "<button id='submit-score'>Submit Score</button>";
+    str += "</br></br><a href='index.html' class='button-78'>Return Home</a>";
+    $(".container").append(str);
+
+    $('#submit-score').click(function() {
+        var name = $('#name').val();
+        if (name) {
+            saveScore(name, correct, incorrect);
+            alert("Score submitted successfully!");
+            window.location.href = 'score.html';
+        } else {
+            alert("Please enter your name.");
+        }
+    });
+    stopMusic();
+}
+
+function saveScore(name, correct, incorrect) {
+    var scores = JSON.parse(localStorage.getItem('scores')) || [];
+    var newScore = {
+        name: name,
+        correct: correct,
+        incorrect: incorrect
+    };
+    scores.push(newScore);
+    localStorage.setItem('scores', JSON.stringify(scores));
+}
+
+var musicAudio = new Audio(); 
+
+function playMusic(musicFile) {
+    musicAudio.src = musicFile;
+    musicAudio.loop = true; 
+    musicAudio.play();
+}
+
+function stopMusic() {
+    musicAudio.pause();
+    musicAudio.currentTime = 0; 
+}
 
 $(document).ready(function() {
-        $('input[name=answer]').click(function(event) {
-            $('input[name=answer]').prop('disabled', true); // don't any other answer
+    var musicEnabled = localStorage.getItem('musicEnabled') === 'true';
+    if (musicEnabled) {
+        playMusic('../sounds/music.mp3'); 
+    }
 
-            var labelFor = $(this).attr('id');
-            setTimeout(async function() {
-                if(event.target.value === "true") {
-                    $('label[for=' + labelFor + ']').attr("class", "correct"); // do label color green
-                    correct++;
-                } else {
-                    $('label[for=' + labelFor + ']').attr("class", "incorrect"); // do label color red
-                    incorrect++;
-                }
-                questionNumber++;
-                await sleep(1000);
+    
+    $('#music').click(function() {
+        musicEnabled = !musicEnabled;
+        localStorage.setItem('musicEnabled', musicEnabled);
+        if (musicEnabled) {
+            playMusic('../sounds/music.mp3'); 
+        } else {
+            stopMusic(); 
+        }
+    });
+        // Music volume slider
+        $('#music-volume-slider').slider({
+            range: "min",
+            min: 0,
+            max: 100,
+            value: 50,
+            slide: function(event, ui) {
+                adjustMusicVolume(ui.value);
+            }
+        });
+    
+        function adjustMusicVolume() {
+            var volume = $('#volume-slider').val();
+            var volumeFraction = volume / 100;
 
-                // reset attributes of labels and radio buttons
-                $('input[name=answer]').prop('checked', false);
-                $('input[name=answer]').prop('disabled', false);
-                if(questionNumber < max) {
-                    next();
-                } else {
+            if (!isNaN(volumeFraction) && isFinite(volumeFraction)) {
+                musicAudio.volume = volumeFraction;
+            } else {
+                console.error("Invalid Audio Volume: " + volume);
+            }
+        }
+        $('#volume-slider').on('input', adjustMusicVolume);
 
-                    // end of game div
-                    $(".container").empty();
-                    var str = "</br></br><p>Correct: " + correct + "</br> Incorrect: " 
-                    + incorrect + "</br></br>END OF GAME </br></br></br><a href='index.html' class='button-78'>Return Home</a>";
-                    $(".container").append(str);
-                }
-                $('label[for=' + labelFor + ']').removeClass("correct incorrect");
-            }, 1000)
-        })
-})
+    $('#playButton').click(function() {
+        if (musicEnabled && !musicAudio.paused) {
+            stopMusic();
+        }
+
+        window.location.href = 'playPage.html';
+    });
+});

@@ -2,21 +2,42 @@ body {
   background: linear-gradient(45deg, #00bfff, #ff7f00, #ffd700); 
 }
 
+.slider-container {
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
 /* Style for logos */
 .language-logo {
-  max-width: 305px;
-  max-height: 305px;
+  max-width: 345px;
+  max-height: 345px;
   cursor: pointer;
   margin: 35px;
 }
 
-/* Styling for selected image */
-.language-logo.selected {
-  border: 2px solid #ffffff; /* Change border color */
-  border-radius: 10px; /* Add border radius for rounded corners */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow effect */
+#message {
+  text-align: center;
+  background-color: #fff;
+  color: #333;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px; /* Adjust width to fit nicely in your layout */
 }
 
+#message h2 {
+  color: #4CAF50; /* Matching your theme color */
+  margin-bottom: 10px;
+  font-size: 1.8em;
+}
+
+#message p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin: 0;
+}
 
 /* Style for header of page start */
 #header-container {

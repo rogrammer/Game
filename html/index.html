@@ -5,13 +5,12 @@
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/navbar.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/index.js"></script>
     <title>Game</title>
   </head>
   <body>
     <!-- Header -->
     <div id="header-container">
-      <h1 id="header">IMPROVE YOUR KNOWLEDGE <br />ON HTML CSS JS</h1>
+      <h1 id="header">IMPROVE YOUR KNOWLEDGE <br />ON HTML, CSS AND JS</h1>
     </div>
     <br /><br />
 
@@ -27,11 +26,13 @@
 
     <!-- Options music sound -->
     <div class="checkbox-wrapper-14">
-      <h1 class="text">OPTIONS</h1>
-      <input id="sound" type="checkbox" class="switch" />
-      <label for="sound">SOUND</label><br />
-      <input id="music" type="checkbox" class="switch" />
-      <label for="music">MUSIC</label><br />
+      <h3 class="text"> Listen to Music while Solving the Questions</h3>
+      <div class="music-controls">
+        <label for="music">MUSIC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input id="music" type="checkbox" class="switch" /><br/> <br>
+        <label for="slider-container">VOLUME&nbsp;&nbsp;</label>
+        <input type="range" id="volume-slider" class="volume-slider" min="0" max="100" value="50">
+      </div>
     </div>
 
     <!-- HTML, CSS, JS Logos -->
@@ -55,22 +56,16 @@
         class="language-logo"
       />
     </div>
-
-    <!-- Select hardness menu -->
-    <div class="checkbox-wrapper-14">
-      <h1 class="text">SELECT HARDNESS</h1>
-      <input id="easy" type="checkbox" class="switch" />
-      <label for="easy">EASY</label><br />
-      <input id="medium" type="checkbox" class="switch" />
-      <label for="medium">MEDIUM</label><br />
-      <input id="hard" type="checkbox" class="switch" />
-      <label for="hard">HARD</label><br />
-    </div>
-    <br /><br /><br />
-
+        <!-- Just a Message -->
+        <div id="message">
+          <h2>Welcome to the Knowledge Game</h2>
+          <p>Test your knowledge and improve your skills in HTML, CSS and JavaScript. We hope you can enjoy the game. GOOD LUCK!</p>
+      </div>
     <!-- Play button -->
     <div id="play">
       <a href="playPage.html" id="playButton" class="button-78" role="button">PLAY</a>
     </div>
+    <script src="../js/index.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </body>
 </html>
