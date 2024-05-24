@@ -1,65 +1,57 @@
-// common.js
-
 $(document).ready(function() {
     var musicEnabled = localStorage.getItem('musicEnabled') === 'true';
+    var musicVolume = parseFloat(localStorage.getItem('musicVolume')) || 0.5;
 
-        // Music volume slider
-        $('#music-volume-slider').slider({
-            range: "min",
-            min: 0,
-            max: 100,
-            value: 50,
-            slide: function(event, ui) {
-                adjustMusicVolume(ui.value);
-            }
-        });
-    
-        function adjustMusicVolume() {
-            var volume = $('#volume-slider').val();
-            var volumeFraction = volume / 100;
+    var musicAudio = new Audio(); 
 
-            if (!isNaN(volumeFraction) && isFinite(volumeFraction)) {
-                musicAudio.volume = volumeFraction;
-            } else {
-                console.error("Geçersiz ses seviyesi: " + volume);
-            }
+    function playMusic(musicFile) {
+        musicAudio.src = musicFile;
+        musicAudio.loop = true; 
+        musicAudio.volume = musicVolume; 
+        musicAudio.play();
+    }
+
+    function stopMusic() {
+        musicAudio.pause();
+        musicAudio.currentTime = 0; 
+    }
+
+    $('#music-volume-slider').slider({
+        range: "min",
+        min: 0,
+        max: 100,
+        value: musicVolume * 100, 
+        slide: function(event, ui) {
+            adjustMusicVolume(ui.value);
         }
-    
-        $('#volume-slider').on('input', adjustMusicVolume);
-        
+    });
+
+    function adjustMusicVolume(value) {
+        var volumeFraction = value / 100;
+        if (!isNaN(volumeFraction) && isFinite(volumeFraction)) {
+            musicAudio.volume = volumeFraction;
+            localStorage.setItem('musicVolume', volumeFraction); 
+        } else {
+            console.error("Invalid audio volume: " + value);
+        }
+    }
+
+    $('#volume-slider').on('input', function() {
+        adjustMusicVolume(this.value);
+    });
+
     // Music checkbox
     $('#music').click(function() {
         musicEnabled = !musicEnabled;
         localStorage.setItem('musicEnabled', musicEnabled);
         if (musicEnabled) {
-            playMusic('../sounds/music.mp3'); // Change 'music.mp3' with your music file name
+            playMusic('../sounds/music.mp3'); 
         } else {
-            stopMusic(); // Stop music if unchecked
+            stopMusic(); 
         }
     });
 
-    var musicAudio = new Audio(); // Initialize audio element for music
-
-    // Function to play sound
-    function playSound(soundFile) {
-        var audio = new Audio(soundFile);
-        audio.play();
-    }
-
-    // Function to play music
-    function playMusic(musicFile) {
-        musicAudio.src = musicFile;
-        musicAudio.loop = true; // Loop the music
-        musicAudio.play();
-    }
-
-    // Function to stop music
-    function stopMusic() {
-        musicAudio.pause();
-    }
-
-    // Stopping the music because we just wanted to play in the game background
-    if (musicEnabled && !musicAudio.paused) {
-        stopMusic();
+    if (musicEnabled) {
+        playMusic('../sounds/music.mp3'); 
     }
 });

@@ -1,51 +1,51 @@
 var questionNumber = 0; // Which question am I on?
 var max; // Question number
-var correct = 0; // correct answers
-var incorrect = 0; // incorrect answers
+var correct = 0; // Correct answers
+var incorrect = 0; // Incorrect answers
 next();
 
-function next() { // go next question
-    /* read json file and change questions and answers */
+function next() {
+    // Go next question
     $.getJSON("../src/questions.json", function(data) {
         max = data.questions.length;
 
         $('p').text(data.questions[questionNumber].question);
         $("#label1").text(data.questions[questionNumber].answers[0].text);
         $("#radio1").attr("value", data.questions[questionNumber].answers[0].correct);
-    
+
         $("#label2").text(data.questions[questionNumber].answers[1].text);
         $("#radio2").attr("value", data.questions[questionNumber].answers[1].correct);
-    
+
         $("#label3").text(data.questions[questionNumber].answers[2].text);
         $("#radio3").attr("value", data.questions[questionNumber].answers[2].correct);
-    
+
         $("#label4").text(data.questions[questionNumber].answers[3].text);
         $("#radio4").attr("value", data.questions[questionNumber].answers[3].correct);
-    })
+    });
 }
 
-// wait function
+// Wait function
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 $(document).ready(function() {
     $('input[name=answer]').click(function(event) {
-        $('input[name=answer]').prop('disabled', true); // don't any other answer
+        $('input[name=answer]').prop('disabled', true); // Disable other answers
 
         var labelFor = $(this).attr('id');
         setTimeout(async function() {
             if(event.target.value === "true") {
-                $('label[for=' + labelFor + ']').attr("class", "correct"); // do label color green
+                $('label[for=' + labelFor + ']').attr("class", "correct"); // Make label green
                 correct++;
             } else {
-                $('label[for=' + labelFor + ']').attr("class", "incorrect"); // do label color red
+                $('label[for=' + labelFor + ']').attr("class", "incorrect"); // Make label red
                 incorrect++;
             }
             questionNumber++;
             await sleep(1000);
 
-            // reset attributes of labels and radio buttons
+            // Reset attributes of labels and radio buttons
             $('input[name=answer]').prop('checked', false);
             $('input[name=answer]').prop('disabled', false);
             if(questionNumber < max) {
@@ -54,64 +54,62 @@ $(document).ready(function() {
                 endGame();
             }
             $('label[for=' + labelFor + ']').removeClass("correct incorrect");
-        }, 1000)
-    })
-})
-
-function endGame() {
-    
-    // End of game div
-    $(".container").empty();
-    var str = "</br></br><p>Correct: " + correct + "</br> Incorrect: " + incorrect + "</br></br>END OF GAME</br></br>";
-    str += "<input type='text' id='name' placeholder='Enter your name' required />";
-    str += "<button id='submit-score'>Submit Score</button>";
-    str += "</br></br><a href='index.html' class='button-78'>Return Home</a>";
-    $(".container").append(str);
-
-    $('#submit-score').click(function() {
-        var name = $('#name').val();
-        if (name) {
-            saveScore(name, correct, incorrect);
-            alert("Score submitted successfully!");
-            window.location.href = 'score.html';
-        } else {
-            alert("Please enter your name.");
-        }
+        }, 1000);
     });
-    stopMusic();
-}
 
-function saveScore(name, correct, incorrect) {
-    var scores = JSON.parse(localStorage.getItem('scores')) || [];
-    var newScore = {
-        name: name,
-        correct: correct,
-        incorrect: incorrect
-    };
-    scores.push(newScore);
-    localStorage.setItem('scores', JSON.stringify(scores));
-}
+    function endGame() {
+        // End of game div
+        $(".container").empty();
+        var str = "</br></br><p>Correct: " + correct + "</br> Incorrect: " + incorrect + "</br></br>END OF GAME</br></br>";
+        str += "<input type='text' id='name' placeholder='Enter your name' required />";
+        str += "<button id='submit-score'>Submit Score</button>";
+        str += "</br></br><a href='index.html' class='button-78'>Return Home</a>";
+        $(".container").append(str);
 
-var musicAudio = new Audio(); 
+        $('#submit-score').click(function() {
+            var name = $('#name').val();
+            if (name) {
+                saveScore(name, correct, incorrect);
+                alert("Score submitted successfully!");
+                window.location.href = 'score.html';
+            } else {
+                alert("Please enter your name.");
+            }
+        });
+        stopMusic();
+    }
 
-function playMusic(musicFile) {
-    musicAudio.src = musicFile;
-    musicAudio.loop = true; 
-    musicAudio.play();
-}
+    function saveScore(name, correct, incorrect) {
+        var scores = JSON.parse(localStorage.getItem('scores')) || [];
+        var newScore = {
+            name: name,
+            correct: correct,
+            incorrect: incorrect
+        };
+        scores.push(newScore);
+        localStorage.setItem('scores', JSON.stringify(scores));
+    }
 
-function stopMusic() {
-    musicAudio.pause();
-    musicAudio.currentTime = 0; 
-}
+    var musicAudio = new Audio(); 
 
-$(document).ready(function() {
+    function playMusic(musicFile) {
+        musicAudio.src = musicFile;
+        musicAudio.loop = true; 
+        var musicVolume = parseFloat(localStorage.getItem('musicVolume')) || 0.5; // Get volume from localStorage
+        musicAudio.volume = musicVolume; // Set the volume
+        musicAudio.play();
+    }
+
+    function stopMusic() {
+        musicAudio.pause();
+        musicAudio.currentTime = 0; 
+    }
+
     var musicEnabled = localStorage.getItem('musicEnabled') === 'true';
     if (musicEnabled) {
         playMusic('../sounds/music.mp3'); 
     }
 
-    
     $('#music').click(function() {
         musicEnabled = !musicEnabled;
         localStorage.setItem('musicEnabled', musicEnabled);
@@ -121,34 +119,11 @@ $(document).ready(function() {
             stopMusic(); 
         }
     });
-        // Music volume slider
-        $('#music-volume-slider').slider({
-            range: "min",
-            min: 0,
-            max: 100,
-            value: 50,
-            slide: function(event, ui) {
-                adjustMusicVolume(ui.value);
-            }
-        });
-    
-        function adjustMusicVolume() {
-            var volume = $('#volume-slider').val();
-            var volumeFraction = volume / 100;
-
-            if (!isNaN(volumeFraction) && isFinite(volumeFraction)) {
-                musicAudio.volume = volumeFraction;
-            } else {
-                console.error("Invalid Audio Volume: " + volume);
-            }
-        }
-        $('#volume-slider').on('input', adjustMusicVolume);
 
     $('#playButton').click(function() {
         if (musicEnabled && !musicAudio.paused) {
             stopMusic();
         }
-
         window.location.href = 'playPage.html';
     });
 });
