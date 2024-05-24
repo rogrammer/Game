@@ -1,47 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <link rel="stylesheet" href="../css/score.css" />
     <link rel="stylesheet" href="../css/navbar.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Scoreboard</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Header -->
     <div class="header-container">
-        <h1 id="header">RANK PAGE</h1>
+      <h1 id="header">RANK PAGE</h1>
     </div>
     <br /><br /><br /><br /><br />
 
     <!-- Navigation Bar -->
     <nav class="main-nav">
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="learn.html">LEARN GAME</a></li>
-            <li><a href="score.html">RANK</a></li>
-            <li><a href="contactus.html">CONTACT US</a></li>
-        </ul>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="learn.html">LEARN GAME</a></li>
+        <li><a href="score.html">RANK</a></li>
+        <li><a href="contactus.html">CONTACT US</a></li>
+      </ul>
     </nav>
 
     <!-- Table header -->
-    <div class="header-container">
+    <div id="flow">
+      <div class="header-container">
         <h1 id="title">SCOREBOARD</h1>
-    </div>
+      </div>
 
-    <!-- Table -->
-    <div class="score-table">
+      <!-- Table -->
+      <div class="score-table">
         <table>
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Name</th>
-                    <th>Score</th>
-                </tr>
-            </thead>
-            <tbody id="scoreboard">
-                <!-- Scores will be dynamically inserted here by score.js -->
-            </tbody>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody id="scoreboard">
+            <!-- Scores will be dynamically inserted here by score.js -->
+          </tbody>
         </table>
+      </div>
     </div>
+    <div id="image-container"></div>
     <script src="../js/score.js"></script>
-</body>
+  </body>
 </html>

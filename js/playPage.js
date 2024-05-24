@@ -60,7 +60,7 @@ $(document).ready(function() {
     function endGame() {
         // End of game div
         $(".container").empty();
-        var str = "</br></br><p>Correct: " + correct + "</br> Incorrect: " + incorrect + "</br></br>END OF GAME</br></br>";
+        var str = "</br></br><p>Correct: " + correct + "</br> Incorrect: " + incorrect + "</br></br>END OF GAME</br>";
         str += "<input type='text' id='name' placeholder='Enter your name' required />";
         str += "<button id='submit-score'>Submit Score</button>";
         str += "</br></br><a href='index.html' class='button-78'>Return Home</a>";

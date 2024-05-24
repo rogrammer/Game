@@ -1,8 +1,25 @@
 body {
-  background: linear-gradient(135deg, #6b8ec6, #5c748d);
+  background: linear-gradient(90deg, #85a3d3, #163557);
   font-family: Arial, sans-serif;
 }
 
+#flow {
+  margin-top: 50px;
+  float: left;
+  width: 60%;
+}
+
+#image-container {
+  margin-top: 100px;
+  float: left;
+  width: 40%;
+}
+
+img {
+  margin-left: 150px;
+  width: 70%;
+  height: 500px;
+}
 
 /* Style for header starts */
 div.header-container {
@@ -24,13 +41,13 @@ div.header-container {
   background-color: aliceblue;
   color: black;
   text-align: center;
-  width: 80%;
+  width: 90%;
   border-radius: 15px;
 }
 
 /* Table style start */
 .score-table {
-  width: 80%;
+  width: 90%;
   margin: 20px auto;
 }
 
